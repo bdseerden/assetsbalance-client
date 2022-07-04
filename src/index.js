@@ -9,7 +9,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
-  <Router>
+  <Router className="entireRouter">
     <Provider store={store}>
       <App />
     </Provider>
