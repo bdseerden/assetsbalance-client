@@ -11,20 +11,6 @@ export default function Footer() {
           <img src={logo} alt=""></img>
         </NavLink>
       </div>
-      <div className="footer-links">
-        <div className="footer-list">
-          <h3>My account</h3>
-          <ul>
-            <li>My portfolio</li>
-          </ul>
-        </div>
-        <div className="footer-socials">
-          <h3>Follow us</h3>
-          <FaInstagram className="footer-icon-social" />
-          <FaFacebookF className="footer-icon-social" />
-          <FaTwitter className="footer-icon-social" />
-        </div>
-      </div>
     </div>
   );
 }

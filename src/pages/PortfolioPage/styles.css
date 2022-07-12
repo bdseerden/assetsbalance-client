@@ -1,0 +1,77 @@
+.portfolioPageContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    rgba(52, 78, 65, 1) 0%,
+    rgba(62, 92, 77, 1) 100%
+  );
+  height: 70vh;
+}
+
+.portfolioPageContainerWithForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    rgba(52, 78, 65, 1) 0%,
+    rgba(62, 92, 77, 1) 100%
+  );
+  height: 70vh;
+}
+
+.addAsset {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.addAssetButton:hover {
+  color: rgb(60, 60, 60)
+}
+
+
+.cardTitles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.changeInPercentage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.currentValue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portfolioPageContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.addAssetButton {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.buySellButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -3,7 +3,7 @@
   justify-content: space-around;
   align-items: center;
   padding: 1rem;
-  height: 57vh;
+  height: 70vh;
   background: linear-gradient(
     180deg,
     rgba(52, 78, 65, 1) 0%,
@@ -17,7 +17,7 @@
   object-fit: cover;
   flex-grow: 1;
   border-radius: 4px;
-  margin-right: 2rem;
+  margin-right: 0rem;
 }
 
 .header-section h1 {
@@ -28,6 +28,9 @@
 }
 
 .header-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin-right: 3rem;
   font-family: Georgia, 'Times New Roman', Times;
   width: 40%;
@@ -36,4 +39,13 @@
 .logo {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
+}
+
+
+.homepageTitle {
+margin-bottom: 0.5rem;
+}
+
+.homepageParagraph {
+  margin-bottom: 6rem;
 }

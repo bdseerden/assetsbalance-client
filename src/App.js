@@ -6,14 +6,12 @@ import Loading from "./components/Loading";
 import MessageBox from "./components/MessageBox";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-import { AdvancedChart, TickerTape } from "react-tradingview-embed";
 import HomePage from "./pages/HomePage";
 import Footer from "./components/Footer";
-
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
-import HeroBanner from "./components/HeroBanner";
+import PortfolioPage from "./pages/PortfolioPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +30,7 @@ function App() {
         <Route exact path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
       </Routes>
       <Footer />
     </div>
