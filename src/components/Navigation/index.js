@@ -8,7 +8,7 @@ import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
 import "./styles.css";
-import logo from "./blockfolio.png";
+import logo from "./assetsBalanceIcon.png";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
