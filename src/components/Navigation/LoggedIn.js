@@ -9,11 +9,16 @@ import Nav from "react-bootstrap/Nav";
 export default function LoggedIn() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+
   return (
     <>
-      <NavbarItem path="/portfolio" linkText="Porfolio" />
-      <Nav.Item style={{ padding: ".5rem 1rem" }}>{user?.email}</Nav.Item>
-      <Button onClick={() => dispatch(logOut())}>Logout</Button>
+      {user ? (
+        <>
+          <NavbarItem path={`/portfolio/${user.id}`} linkText="Porfolio" />
+          <Nav.Item style={{ padding: ".5rem 1rem" }}>{user?.email}</Nav.Item>
+          <Button onClick={() => dispatch(logOut())}>Logout</Button>
+        </>
+      ) : null}
     </>
   );
 }

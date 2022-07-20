@@ -2,32 +2,45 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import Image from "react-bootstrap/Image";
-import { useDispatch } from "react-redux";
-import { postStory } from "../../store/user/actions";
 import ToggleButton from 'react-bootstrap/ToggleButton';
+import { useDispatch } from "react-redux";
+import { updateAssetHolding } from "../../store/user/actions";
 
-export default function AssetForm() {
-  const dispatch = useDispatch();
+export default function AssetForm(props) {  
   const [asset, setAsset] = useState("");
-  const [content, setContent] = useState("");
-  const [imageUrl, setImageUrl] = useState(
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
-  );
+  const [amount, setAmount] = useState("");
+  const [buyTransaction, setBuyTransaction] = useState(null)
+  const dispatch = useDispatch()
+
+  console.log(asset)
+  console.log(amount)
+  console.log(buyTransaction)
 
   function submitForm(event) {
     event.preventDefault();
 
-    // console.log(name, content, imageUrl);
-    // dispatch(postAsset(name, content, imageUrl));
+    buyTransaction ? 
+    dispatch(updateAssetHolding(asset, parseInt(amount))) :  dispatch(updateAssetHolding(asset, parseInt(-amount)))
+   
   }
-  
-  return (
-    <Form as={Col} md={{ span: 6, offset: 3 }}>
-      <h1 className="mt-5 mb-5">Add Transaction</h1>
 
-      <Form.Group>
-        <Form.Label>Class</Form.Label>
+  function refreshPage() {
+    setTimeout(function(){
+      window.location.reload();
+   }, 200);
+  }
+
+  function submitButton(event) {
+    submitForm(event)
+    refreshPage()
+  }
+
+  return (
+    <>
+    <Form className="assetform" as={Col} md={{ span: 6, offset: 3 }}>
+
+      <Form.Group className="assetInput">
+        <Form.Label>Asset</Form.Label>
       <Form.Select
       value={asset}
       placeholder="Asset Type"
@@ -37,29 +50,40 @@ export default function AssetForm() {
   <option>Asset Type</option>
   <option value="BTC">Bitcoin</option>
   <option value="ETH">Ethereum</option>
+  <option value="LTC">Litecoin</option>
+  <option value="XRP">Ripple</option>
   <option value="AAPL">Apple Stock</option>
+  <option value="ABNB">Airbnb Stock</option>
+  <option value="AMD">AMD Stock</option>
+  <option value="AMZN">Amazon Stock</option>
+
+
+
 </Form.Select>
       </Form.Group>
 
       <Form.Group>
         <Form.Label>Amount</Form.Label>
-        <Form.Control
-          value={content}
-          onChange={event => setContent(event.target.value)}
-          type="text"
-        />
+<Form.Control
+          value={amount}
+          onChange={event => setAmount(event.target.value)}
+          type="number"
+        /> 
       </Form.Group>
 
       <Form.Group className="buySellButtons">
-        <ToggleButton variant="success">Buy</ToggleButton>
-        <ToggleButton variant="danger">Sell</ToggleButton>
+        <ToggleButton onClick={() => setBuyTransaction(true)} variant="success">Buy</ToggleButton>
+        <ToggleButton onClick={() => setBuyTransaction(false)} variant="danger">Sell</ToggleButton>
       </Form.Group>
 
-      <Form.Group className="mt-5">
-        <Button variant="primary" type="submit" onClick={submitForm}>
+      <Form.Group className="addtransaction">
+        <Button variant="primary" type="submit" onClick={submitButton} >
           Add Transaction
         </Button>
       </Form.Group>
     </Form>
+
+   
+       </>
   );
 }

@@ -4,6 +4,82 @@ import { selectToken } from "./selectors";
 import { appLoading, appDoneLoading, setMessage } from "../appState/slice";
 import { showMessageWithTimeout } from "../appState/actions";
 import { loginSuccess, logOut, tokenStillValid } from "./slice";
+import { fetchedHoldingsById, fetchedBtcInfo, fetchedEthInfo } from "./slice";
+
+// export const updateHoldingsInServer = (id) => {
+//   return async (dispatch, getState) => {
+//     try {
+//       // dispatch(appLoading());
+//       const response = await axios.patch(`${apiUrl}/holdings/${id}`);
+//       console.log(response);
+
+//       dispatch(incrementHeartsInState());
+//       // dispatch(appDoneLoading());
+//     } catch (e) {
+//       console.log(e.message);
+//     }
+//   };
+// };
+
+export const updateAssetHolding = (asset, amount) => {
+  return async (dispatch, getState) => {
+    try {
+      const { profile } = getState().user;
+
+      const response = await axios.patch(
+        `${apiUrl}/holdings/update/${profile.id}`,
+        {
+          asset,
+          amount,
+        }
+      );
+      console.log(response);
+      // dispatch(assetUpdated(response.data));
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+};
+
+export const fetchHoldingsById = (id) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(`${apiUrl}/holdings/${id}`);
+      console.log(response.data);
+      dispatch(fetchedHoldingsById(response.data.holding));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+
+export const fetchBtcInfo = (asset) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(
+        `https://ftx.com/api/markets/${asset}/USD`
+      );
+      console.log(response.data);
+      dispatch(fetchedBtcInfo(response.data));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+
+export const fetchEthInfo = (asset) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(
+        `https://ftx.com/api/markets/${asset}/USD`
+      );
+      console.log(response.data);
+      dispatch(fetchedEthInfo(response.data));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
 
 export const signUp = (name, email, password) => {
   return async (dispatch, getState) => {

@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   token: localStorage.getItem("token"),
   profile: null,
+  portfolio: [],
+  btcInfo: null,
 };
 
 export const userSlice = createSlice({
@@ -22,9 +24,25 @@ export const userSlice = createSlice({
     tokenStillValid: (state, action) => {
       state.profile = action.payload.user;
     },
+    fetchedHoldingsById: (state, action) => {
+      state.portfolio = action.payload;
+    },
+    fetchedBtcInfo: (state, action) => {
+      state.btcInfo = action.payload;
+    },
+    fetchedEthInfo: (state, action) => {
+      state.ethInfo = action.payload;
+    },
   },
 });
 
-export const { loginSuccess, logOut, tokenStillValid } = userSlice.actions;
+export const {
+  loginSuccess,
+  logOut,
+  tokenStillValid,
+  fetchedHoldingsById,
+  fetchedBtcInfo,
+  fetchedEthInfo,
+} = userSlice.actions;
 
 export default userSlice.reducer;
