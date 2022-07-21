@@ -4,22 +4,17 @@ import { selectToken } from "./selectors";
 import { appLoading, appDoneLoading, setMessage } from "../appState/slice";
 import { showMessageWithTimeout } from "../appState/actions";
 import { loginSuccess, logOut, tokenStillValid } from "./slice";
-import { fetchedHoldingsById, fetchedBtcInfo, fetchedEthInfo } from "./slice";
-
-// export const updateHoldingsInServer = (id) => {
-//   return async (dispatch, getState) => {
-//     try {
-//       // dispatch(appLoading());
-//       const response = await axios.patch(`${apiUrl}/holdings/${id}`);
-//       console.log(response);
-
-//       dispatch(incrementHeartsInState());
-//       // dispatch(appDoneLoading());
-//     } catch (e) {
-//       console.log(e.message);
-//     }
-//   };
-// };
+import {
+  fetchedHoldingsById,
+  fetchedBtcInfo,
+  fetchedEthInfo,
+  fetchedLtcInfo,
+  fetchedXrpInfo,
+  fetchedAaplInfo,
+  fetchedAbnbInfo,
+  fetchedAmdInfo,
+  fetchedAmznInfo,
+} from "./slice";
 
 export const updateAssetHolding = (asset, amount) => {
   return async (dispatch, getState) => {
@@ -75,6 +70,90 @@ export const fetchEthInfo = (asset) => {
       );
       console.log(response.data);
       dispatch(fetchedEthInfo(response.data));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+
+export const fetchLtcInfo = (asset) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(
+        `https://ftx.com/api/markets/${asset}/USD`
+      );
+      console.log(response.data);
+      dispatch(fetchedLtcInfo(response.data));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+
+export const fetchXrpInfo = (asset) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(
+        `https://ftx.com/api/markets/${asset}/USD`
+      );
+      console.log(response.data);
+      dispatch(fetchedXrpInfo(response.data));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+
+export const fetchAaplInfo = (asset) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(
+        `https://ftx.com/api/markets/${asset}/USD`
+      );
+      console.log(response.data);
+      dispatch(fetchedAaplInfo(response.data));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+
+export const fetchAbnbInfo = (asset) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(
+        `https://ftx.com/api/markets/${asset}/USD`
+      );
+      console.log(response.data);
+      dispatch(fetchedAbnbInfo(response.data));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+
+export const fetchAmdInfo = (asset) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(
+        `https://ftx.com/api/markets/${asset}/USD`
+      );
+      console.log(response.data);
+      dispatch(fetchedAmdInfo(response.data));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+
+export const fetchAmznInfo = (asset) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.get(
+        `https://ftx.com/api/markets/${asset}/USD`
+      );
+      console.log(response.data);
+      dispatch(fetchedAmznInfo(response.data));
     } catch (e) {
       console.log(e);
     }

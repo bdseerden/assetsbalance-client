@@ -32,7 +32,7 @@
   justify-content: center;
   margin-right: 1rem; 
   margin-top: 0rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .addAssetButton:hover {
@@ -69,7 +69,7 @@
 .addAssetButton {
   margin-left: 1rem;
   margin-right: 1rem;
-  margin-bottom: 0rem;
+  margin-bottom: 0.5rem;
 }
 
 .buySellButtons {
@@ -88,7 +88,7 @@
 }
 
 .assetInput {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 button {

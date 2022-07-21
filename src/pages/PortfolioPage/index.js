@@ -7,10 +7,27 @@ import AssetForm from "./AssetForm";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchHoldingsById, fetchBtcInfo } from "../../store/user/actions";
+import {
+  fetchHoldingsById,
+  fetchBtcInfo,
+  fetchEthInfo,
+  fetchLtcInfo,
+  fetchXrpInfo,
+  fetchAaplInfo,
+  fetchAbnbInfo,
+  fetchAmdInfo,
+  fetchAmznInfo,
+} from "../../store/user/actions";
 import {
   selectHoldings,
   selectBtcInfo,
+  selectEthInfo,
+  selectLtcInfo,
+  selectXrpInfo,
+  selectAaplInfo,
+  selectAbnbInfo,
+  selectAmdInfo,
+  selectAmznInfo,
   selectToken,
 } from "../../store/user/selectors";
 import { FiRefreshCw } from "react-icons/fi";
@@ -25,17 +42,21 @@ export default function PortfolioPage() {
   const BTC = "BTC";
   const ETH = "ETH";
   const LTC = "LTC";
+  const XRP = "XRP";
   const AAPL = "AAPL";
-  const AMZN = "AMZN";
+  const ABNB = "ABNB";
   const AMD = "AMD";
+  const AMZN = "AMZN";
 
   const holding = useSelector(selectHoldings);
   const btcInfo = useSelector(selectBtcInfo);
-  // const ethInfo = useSelector(selectEthInfo);
-  // const ltcInfo = useSelector(selectLtcInfo);
-  // const aaplInfo = useSelector(selectAaplInfo);
-  // const amznInfo = useSelector(selectAmznInfo);
-  // const amdInfo = useSelector(selectAmdInfo);
+  const ethInfo = useSelector(selectEthInfo);
+  const ltcInfo = useSelector(selectLtcInfo);
+  const xrpInfo = useSelector(selectXrpInfo);
+  const aaplInfo = useSelector(selectAaplInfo);
+  const abnbInfo = useSelector(selectAbnbInfo);
+  const amdInfo = useSelector(selectAmdInfo);
+  const amznInfo = useSelector(selectAmznInfo);
 
   const dispatch = useDispatch();
 
@@ -53,32 +74,40 @@ export default function PortfolioPage() {
     dispatch(fetchBtcInfo(BTC));
   }, [dispatch, BTC]);
 
-  // useEffect(() => {
-  //   dispatch(fetchEthInfo(ETH));
-  // }, [dispatch, ETH]);
+  useEffect(() => {
+    dispatch(fetchEthInfo(ETH));
+  }, [dispatch, ETH]);
 
-  // useEffect(() => {
-  //   dispatch(fetchLtcInfo(LTC));
-  // }, [dispatch, LTC]);
+  useEffect(() => {
+    dispatch(fetchLtcInfo(LTC));
+  }, [dispatch, LTC]);
 
-  // useEffect(() => {
-  //   dispatch(fetchAaplInfo(AAPL));
-  // }, [dispatch, AAPL]);
+  useEffect(() => {
+    dispatch(fetchXrpInfo(XRP));
+  }, [dispatch, XRP]);
 
-  // useEffect(() => {
-  //   dispatch(fetchAmznInfo(AMZN));
-  // }, [dispatch, AMZN]);
+  useEffect(() => {
+    dispatch(fetchAaplInfo(AAPL));
+  }, [dispatch, AAPL]);
 
-  // useEffect(() => {
-  //   dispatch(fetchAmdInfo(AMD));
-  // }, [dispatch, AMD]);
+  useEffect(() => {
+    dispatch(fetchAbnbInfo(ABNB));
+  }, [dispatch, ABNB]);
+
+  useEffect(() => {
+    dispatch(fetchAmdInfo(AMD));
+  }, [dispatch, AMD]);
+
+  useEffect(() => {
+    dispatch(fetchAmznInfo(AMZN));
+  }, [dispatch, AMZN]);
 
   const assetAmount = holding.holdings;
 
   function refreshPage() {
     setTimeout(function () {
       window.location.reload();
-    }, 200);
+    }, 300);
   }
 
   return (
@@ -98,16 +127,25 @@ export default function PortfolioPage() {
                   </Card.Subtitle>
                   <Card.Title>
                     $
-                    {btcInfo
-                      ? (
-                          assetAmount[0].amount * btcInfo.result.price
-                        ).toLocaleString("en-US")
-                      : 0}
-                    {/* // assetAmount[1].amount * ethInfo.result.price + //
-                    assetAmount[2].amount * ltcInfo.result.price + //
-                    assetAmount[3].amount * aaplInfo.result.price + //
-                    assetAmount[4].amount * amznInfo.result.price + //
-                    assetAmount[5].amount * amdInfo.result.price */}
+                    {!ethInfo ||
+                    !btcInfo ||
+                    !ltcInfo ||
+                    !xrpInfo ||
+                    !aaplInfo ||
+                    !abnbInfo ||
+                    !amdInfo ||
+                    !amznInfo
+                      ? null
+                      : (
+                          assetAmount[4].amount * btcInfo.result.price +
+                          assetAmount[5].amount * ethInfo.result.price +
+                          assetAmount[7].amount * ltcInfo.result.price +
+                          assetAmount[0].amount * aaplInfo.result.price +
+                          assetAmount[1].amount * abnbInfo.result.price +
+                          assetAmount[2].amount * amdInfo.result.price +
+                          assetAmount[3].amount * amznInfo.result.price +
+                          assetAmount[9].amount * xrpInfo.result.price
+                        ).toLocaleString("en-US")}
                   </Card.Title>
                 </div>
                 <div className="changeInPercentage">
@@ -131,25 +169,78 @@ export default function PortfolioPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {!holding
-                    ? null
+                  {!ethInfo ||
+                  !btcInfo ||
+                  !ltcInfo ||
+                  !xrpInfo ||
+                  !aaplInfo ||
+                  !abnbInfo ||
+                  !amdInfo ||
+                  !amznInfo
+                    ? console.log("NO DATA YET")
                     : holding.holdings?.map((holding) => {
                         if (holding.amount === 0) {
                           return null;
                         }
 
-                        if (btcInfo === null) {
-                          return null;
-                        }
-
                         return (
                           <tr key={holding.id}>
-                            <td>{holding.asset}</td>
+                            <td>
+                              {holding.asset === "BTC" && holding.amount > 0
+                                ? "Bitcoin (BTC)"
+                                : null}
+                              {holding.asset === "ETH" && holding.amount > 0
+                                ? "Ethereum (ETH)"
+                                : null}
+                              {holding.asset === "LTC" && holding.amount > 0
+                                ? "Litecoin (LTC)"
+                                : null}
+
+                              {holding.asset === "XRP" && holding.amount > 0
+                                ? "Ripple (XRP)"
+                                : null}
+
+                              {holding.asset === "AAPL" && holding.amount > 0
+                                ? "Apple Stock (AAPL)"
+                                : null}
+
+                              {holding.asset === "ABNB" && holding.amount > 0
+                                ? "Airbnb Stock (ABNB)"
+                                : null}
+
+                              {holding.asset === "AMD" && holding.amount > 0
+                                ? "AMD Stock (AMD)"
+                                : null}
+                              {holding.asset === "AMZN" && holding.amount > 0
+                                ? "Amazon Stock (AMZN)"
+                                : null}
+                            </td>
                             <td>
                               {" "}
                               $
-                              {holding.asset === "BTC"
+                              {holding.asset === "BTC" && holding.amount > 0
                                 ? btcInfo.result.price.toLocaleString("en-US")
+                                : null}
+                              {holding.asset === "ETH" && holding.amount > 0
+                                ? ethInfo.result.price.toLocaleString("en-US")
+                                : null}
+                              {holding.asset === "LTC" && holding.amount > 0
+                                ? ltcInfo.result.price.toLocaleString("en-US")
+                                : null}
+                              {holding.asset === "XRP" && holding.amount > 0
+                                ? xrpInfo.result.price.toLocaleString("en-US")
+                                : null}
+                              {holding.asset === "AAPL" && holding.amount > 0
+                                ? aaplInfo.result.price.toLocaleString("en-US")
+                                : null}
+                              {holding.asset === "ABNB" && holding.amount > 0
+                                ? abnbInfo.result.price.toLocaleString("en-US")
+                                : null}{" "}
+                              {holding.asset === "AMD" && holding.amount > 0
+                                ? amdInfo.result.price.toLocaleString("en-US")
+                                : null}
+                              {holding.asset === "AMZN" && holding.amount > 0
+                                ? amznInfo.result.price.toLocaleString("en-US")
                                 : null}
                             </td>
                             <td>{holding.amount}</td>

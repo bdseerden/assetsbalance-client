@@ -5,6 +5,13 @@ const initialState = {
   profile: null,
   portfolio: [],
   btcInfo: null,
+  ethInfo: null,
+  ltcInfo: null,
+  xrpInfo: null,
+  aaplInfo: null,
+  abnbInfo: null,
+  amdInfo: null,
+  amznInfo: null,
 };
 
 export const userSlice = createSlice({
@@ -33,6 +40,24 @@ export const userSlice = createSlice({
     fetchedEthInfo: (state, action) => {
       state.ethInfo = action.payload;
     },
+    fetchedLtcInfo: (state, action) => {
+      state.ltcInfo = action.payload;
+    },
+    fetchedXrpInfo: (state, action) => {
+      state.xrpInfo = action.payload;
+    },
+    fetchedAaplInfo: (state, action) => {
+      state.aaplInfo = action.payload;
+    },
+    fetchedAbnbInfo: (state, action) => {
+      state.abnbInfo = action.payload;
+    },
+    fetchedAmdInfo: (state, action) => {
+      state.amdInfo = action.payload;
+    },
+    fetchedAmznInfo: (state, action) => {
+      state.amznInfo = action.payload;
+    },
   },
 });
 
@@ -43,6 +68,12 @@ export const {
   fetchedHoldingsById,
   fetchedBtcInfo,
   fetchedEthInfo,
+  fetchedLtcInfo,
+  fetchedXrpInfo,
+  fetchedAaplInfo,
+  fetchedAbnbInfo,
+  fetchedAmdInfo,
+  fetchedAmznInfo,
 } = userSlice.actions;
 
 export default userSlice.reducer;

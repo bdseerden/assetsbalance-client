@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import { useDispatch } from "react-redux";
 import { updateAssetHolding } from "../../store/user/actions";
+import "./styles.css" 
 
 export default function AssetForm(props) {  
   const [asset, setAsset] = useState("");
@@ -27,7 +28,7 @@ export default function AssetForm(props) {
   function refreshPage() {
     setTimeout(function(){
       window.location.reload();
-   }, 200);
+   }, 250);
   }
 
   function submitButton(event) {
@@ -48,14 +49,14 @@ export default function AssetForm(props) {
       required
       >
   <option>Asset Type</option>
-  <option value="BTC">Bitcoin</option>
-  <option value="ETH">Ethereum</option>
-  <option value="LTC">Litecoin</option>
-  <option value="XRP">Ripple</option>
-  <option value="AAPL">Apple Stock</option>
-  <option value="ABNB">Airbnb Stock</option>
-  <option value="AMD">AMD Stock</option>
-  <option value="AMZN">Amazon Stock</option>
+  <option value="BTC">Bitcoin (BTC)</option>
+  <option value="ETH">Ethereum (ETH)</option>
+  <option value="LTC">Litecoin (LTC)</option>
+  <option value="XRP">Ripple (XRP)</option>
+  <option value="AAPL">Apple Stock (AAPL)</option>
+  <option value="ABNB">Airbnb Stock (ABNB)</option>
+  <option value="AMD">AMD Stock (AMD)</option>
+  <option value="AMZN">Amazon Stock (AMZN)</option>
 
 
 
