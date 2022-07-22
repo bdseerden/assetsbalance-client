@@ -16,7 +16,9 @@ export default function LoggedIn() {
         <>
           <NavbarItem path={`/portfolio/${user.id}`} linkText="Porfolio" />
           <Nav.Item style={{ padding: ".5rem 1rem" }}>{user?.email}</Nav.Item>
-          <Button onClick={() => dispatch(logOut())}>Logout</Button>
+          <Button className="logoutButton" onClick={() => dispatch(logOut())}>
+            Logout
+          </Button>
         </>
       ) : null}
     </>

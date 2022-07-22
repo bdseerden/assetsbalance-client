@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import "./styles.css";
 import AssetForm from "./AssetForm";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -186,34 +186,85 @@ export default function PortfolioPage() {
                         return (
                           <tr key={holding.id}>
                             <td>
-                              {holding.asset === "BTC" && holding.amount > 0
-                                ? "Bitcoin (BTC)"
-                                : null}
-                              {holding.asset === "ETH" && holding.amount > 0
-                                ? "Ethereum (ETH)"
-                                : null}
-                              {holding.asset === "LTC" && holding.amount > 0
-                                ? "Litecoin (LTC)"
-                                : null}
+                              {holding.asset === "BTC" && holding.amount > 0 ? (
+                                <Link
+                                  className="assetLink"
+                                  to={`/details/${holding.asset}`}
+                                >
+                                  {" "}
+                                  Bitcoin (BTC){" "}
+                                </Link>
+                              ) : null}
+                              {holding.asset === "ETH" && holding.amount > 0 ? (
+                                <Link
+                                  className="assetLink"
+                                  to={`/details/${holding.asset}`}
+                                >
+                                  {" "}
+                                  Ethereum (ETH){" "}
+                                </Link>
+                              ) : null}
+                              {holding.asset === "LTC" && holding.amount > 0 ? (
+                                <Link
+                                  className="assetLink"
+                                  to={`/details/${holding.asset}`}
+                                >
+                                  {" "}
+                                  Litecoin (LTC){" "}
+                                </Link>
+                              ) : null}
 
-                              {holding.asset === "XRP" && holding.amount > 0
-                                ? "Ripple (XRP)"
-                                : null}
+                              {holding.asset === "XRP" && holding.amount > 0 ? (
+                                <Link
+                                  className="assetLink"
+                                  to={`/details/${holding.asset}`}
+                                >
+                                  {" "}
+                                  Ripple (XRP){" "}
+                                </Link>
+                              ) : null}
 
-                              {holding.asset === "AAPL" && holding.amount > 0
-                                ? "Apple Stock (AAPL)"
-                                : null}
+                              {holding.asset === "AAPL" &&
+                              holding.amount > 0 ? (
+                                <Link
+                                  className="assetLink"
+                                  to={`/details/${holding.asset}`}
+                                >
+                                  {" "}
+                                  Apple Stock (AAPL){" "}
+                                </Link>
+                              ) : null}
 
-                              {holding.asset === "ABNB" && holding.amount > 0
-                                ? "Airbnb Stock (ABNB)"
-                                : null}
+                              {holding.asset === "ABNB" &&
+                              holding.amount > 0 ? (
+                                <Link
+                                  className="assetLink"
+                                  to={`/details/${holding.asset}`}
+                                >
+                                  {" "}
+                                  Airbnb Stock (ABNB){" "}
+                                </Link>
+                              ) : null}
 
-                              {holding.asset === "AMD" && holding.amount > 0
-                                ? "AMD Stock (AMD)"
-                                : null}
-                              {holding.asset === "AMZN" && holding.amount > 0
-                                ? "Amazon Stock (AMZN)"
-                                : null}
+                              {holding.asset === "AMD" && holding.amount > 0 ? (
+                                <Link
+                                  className="assetLink"
+                                  to={`/details/${holding.asset}`}
+                                >
+                                  {" "}
+                                  AMD Stock (AMD){" "}
+                                </Link>
+                              ) : null}
+                              {holding.asset === "AMZN" &&
+                              holding.amount > 0 ? (
+                                <Link
+                                  className="assetLink"
+                                  to={`/details/${holding.asset}`}
+                                >
+                                  {" "}
+                                  Amazon Stock (AMZN){" "}
+                                </Link>
+                              ) : null}
                             </td>
                             <td>
                               {" "}
@@ -235,7 +286,7 @@ export default function PortfolioPage() {
                                 : null}
                               {holding.asset === "ABNB" && holding.amount > 0
                                 ? abnbInfo.result.price.toLocaleString("en-US")
-                                : null}{" "}
+                                : null}
                               {holding.asset === "AMD" && holding.amount > 0
                                 ? amdInfo.result.price.toLocaleString("en-US")
                                 : null}

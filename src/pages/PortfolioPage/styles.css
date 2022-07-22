@@ -100,3 +100,8 @@ button {
 	cursor: pointer;
 	outline: inherit;
 }
+
+.assetLink {
+  text-decoration: none;
+  color: inherit;
+}

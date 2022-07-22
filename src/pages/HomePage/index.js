@@ -2,6 +2,7 @@ import { TickerTape } from "react-tradingview-embed";
 import "./styles.css";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import backgroundImage from "./AssetsBalanceBackground.png";
 
 export default function HomePage() {
   return (
@@ -17,14 +18,18 @@ export default function HomePage() {
             If you save up over many years, you won't earn enough interest to
             cover the increasing cost of living. When your cash fails to keep up
             with inflation, it loses relative value and you'll end up with less
-            buying power.
+            buying power. Investing ensures present and future financial
+            security. It allows you to grow your wealth and at the same time
+            generate inflation-beating returns. You also benefit from the power
+            of compounding.
           </p>
-          <br></br>
           <p className="homepageParagraph">
-            Investing ensures present and future financial security. It allows
-            you to grow your wealth and at the same time generate
-            inflation-beating returns. You also benefit from the power of
-            compounding.
+            Your portfolio might include any combination of financial assets,
+            such as stocks, cryptocurrencies, bonds, mutual funds and
+            exchange-traded funds (ETFs). Keeping track of all these assets can
+            be a challenging, if not daunting, task. It's important to routinely
+            know what’s going on with all your investments—not just once a year
+            when you get your tax forms.
           </p>
           <Link to="/signup">
             <Button variant="primary">Sign up to create a new portfolio</Button>
@@ -40,11 +45,3 @@ export default function HomePage() {
     </>
   );
 }
-
-//  /* <AdvancedChart
-//       widgetProps={{
-//         allow_symbol_change: true,
-//         hide_top_toolbar: true,
-//         container_id: "tradingview_71dd1",
-//       }}
-//     />

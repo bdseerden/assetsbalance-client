@@ -49,14 +49,14 @@ export default function AssetForm(props) {
       required
       >
   <option>Asset Type</option>
-  <option value="BTC">Bitcoin (BTC)</option>
-  <option value="ETH">Ethereum (ETH)</option>
-  <option value="LTC">Litecoin (LTC)</option>
-  <option value="XRP">Ripple (XRP)</option>
   <option value="AAPL">Apple Stock (AAPL)</option>
   <option value="ABNB">Airbnb Stock (ABNB)</option>
   <option value="AMD">AMD Stock (AMD)</option>
   <option value="AMZN">Amazon Stock (AMZN)</option>
+  <option value="BTC">Bitcoin (BTC)</option>
+  <option value="ETH">Ethereum (ETH)</option>
+  <option value="LTC">Litecoin (LTC)</option>
+  <option value="XRP">Ripple (XRP)</option>
 
 
 
