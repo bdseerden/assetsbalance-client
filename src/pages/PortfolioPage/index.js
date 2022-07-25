@@ -123,7 +123,7 @@ export default function PortfolioPage() {
               <div className="cardTitles">
                 <div className="currentValue">
                   <Card.Subtitle className="mb-2 text-muted">
-                    Current Value
+                    Total Value
                   </Card.Subtitle>
                   <Card.Title>
                     $
@@ -166,6 +166,7 @@ export default function PortfolioPage() {
                     <th>Asset</th>
                     <th>Price</th>
                     <th>Holdings</th>
+                    <th>Value</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -179,7 +180,7 @@ export default function PortfolioPage() {
                   !amznInfo
                     ? console.log("NO DATA YET")
                     : holding.holdings?.map((holding) => {
-                        if (holding.amount === 0) {
+                        if (holding.amount <= 0) {
                           return null;
                         }
 
@@ -295,6 +296,49 @@ export default function PortfolioPage() {
                                 : null}
                             </td>
                             <td>{holding.amount}</td>
+                            <td>
+                              $
+                              {holding.asset === "BTC" && holding.amount > 0
+                                ? (
+                                    btcInfo.result.price * holding.amount
+                                  ).toLocaleString("en-US")
+                                : null}
+                              {holding.asset === "ETH" && holding.amount > 0
+                                ? (
+                                    ethInfo.result.price * holding.amount
+                                  ).toLocaleString("en-US")
+                                : null}
+                              {holding.asset === "LTC" && holding.amount > 0
+                                ? (
+                                    ltcInfo.result.price * holding.amount
+                                  ).toLocaleString("en-US")
+                                : null}
+                              {holding.asset === "XRP" && holding.amount > 0
+                                ? (
+                                    xrpInfo.result.price * holding.amount
+                                  ).toLocaleString("en-US")
+                                : null}
+                              {holding.asset === "AAPL" && holding.amount > 0
+                                ? (
+                                    aaplInfo.result.price * holding.amount
+                                  ).toLocaleString("en-US")
+                                : null}
+                              {holding.asset === "ABNB" && holding.amount > 0
+                                ? (
+                                    abnbInfo.result.price * holding.amount
+                                  ).toLocaleString("en-US")
+                                : null}
+                              {holding.asset === "AMD" && holding.amount > 0
+                                ? (
+                                    amdInfo.result.price * holding.amount
+                                  ).toLocaleString("en-US")
+                                : null}
+                              {holding.asset === "AMZN" && holding.amount > 0
+                                ? (
+                                    amznInfo.result.price * holding.amount
+                                  ).toLocaleString("en-US")
+                                : null}
+                            </td>
                           </tr>
                         );
                       })}
