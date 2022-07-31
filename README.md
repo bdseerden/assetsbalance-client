@@ -1,42 +1,20 @@
-# Frontend template
+# 💹 **AssetsBalance**
 
-This is a simple react/redux/jwt template to start a project quickly
+## **_A one-stop platform for tracking all assets._**
 
-## Table of contents:
+Obviously alot of investment tracking apps are already out there. I had one on my phone as well but it only supported cryptocurrencies. Keeping track of all these different types of assets that are out there can be a challenging, if not daunting, task. It's important to routinely know what’s going on with all your investments. That's why I wanted to create a one-stop platform that supports all kinds of assets.
 
-- **[Setup](#setup-how-to-use-this-template)**
-- **[Create React App docs](#cra-docs)**
+## **_Setup_**
 
-## SETUP How to use this template
+Run $ npm i to install all packages that are required to run AssetsBalance.
 
-1. Create a new project based on this template using the `Use this template` button
+After installation has finished run $ npm run start, your browser will open automatically displaying the home screen.
 
-![HOW_TO_USE](https://user-images.githubusercontent.com/20372832/77003323-70966180-695d-11ea-8abe-b362d57135f3.gif)
+## **_Usage_**
 
-2. Clone the app
+Signup and create an account to use the app, you now have access to your personal portfolio page. You can add or remove assets to your portfolio by adding a transaction.
 
-```
-git clone git@github.com:YOUR_GITHUB_NAME/YOUR_PROJECT_NAME.git
-```
-
-3. cd into your project
-
-```
-cd YOUR_PROJECT_NAME
-```
-
-4. install dependencies
-
-```
-npm install
-```
-
-5. Start development server with npm start
-
-```
-npm start
-```
-
-## CRA docs
-
-The normal Create React App docs can be found in [CRA_DOCS.md](./CRA_DOCS.md)
+- To add assets click the "buy" option when adding a transaction.
+- To remove assets click the "sell" option when adding a transaction.
+- When you click the name of the asset in your portfolio you get a details page with a dynamic price chart.
+- Click the refresh button to update the prices.

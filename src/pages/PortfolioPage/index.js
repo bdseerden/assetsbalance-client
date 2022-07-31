@@ -134,7 +134,8 @@ export default function PortfolioPage() {
                     !aaplInfo ||
                     !abnbInfo ||
                     !amdInfo ||
-                    !amznInfo
+                    !amznInfo ||
+                    !assetAmount
                       ? null
                       : (
                           assetAmount[4].amount * btcInfo.result.price +
