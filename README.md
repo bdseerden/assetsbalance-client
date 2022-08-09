@@ -6,9 +6,9 @@ Obviously alot of investment tracking apps are already out there. I had one on m
 
 ## **_Setup_**
 
-Run $ npm i to install all packages that are required to run AssetsBalance.
+Run ``$ npm install`` to install all packages that are required to run AssetsBalance.
 
-After installation has finished run $ npm run start, your browser will open automatically displaying the home screen.
+After installation has finished run ``$ npm run start``, your browser will open automatically displaying the home screen.
 
 ## **_Usage_**
 
