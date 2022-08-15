@@ -52,7 +52,7 @@ export const fetchBtcInfo = (asset) => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(
-        `https://ftx.com/api/markets/${asset}/USD`
+        `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd`
       );
       console.log(response.data);
       dispatch(fetchedBtcInfo(response.data));
@@ -66,7 +66,7 @@ export const fetchEthInfo = (asset) => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(
-        `https://ftx.com/api/markets/${asset}/USD`
+        `https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd`
       );
       console.log(response.data);
       dispatch(fetchedEthInfo(response.data));
@@ -80,7 +80,7 @@ export const fetchLtcInfo = (asset) => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(
-        `https://ftx.com/api/markets/${asset}/USD`
+        `https://api.coingecko.com/api/v3/simple/price?ids=litecoin&vs_currencies=usd`
       );
       console.log(response.data);
       dispatch(fetchedLtcInfo(response.data));
@@ -94,7 +94,7 @@ export const fetchXrpInfo = (asset) => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(
-        `https://ftx.com/api/markets/${asset}/USD`
+        `https://api.coingecko.com/api/v3/simple/price?ids=ripple&vs_currencies=usd`
       );
       console.log(response.data);
       dispatch(fetchedXrpInfo(response.data));
@@ -108,7 +108,7 @@ export const fetchAaplInfo = (asset) => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(
-        `https://ftx.com/api/markets/${asset}/USD`
+        `https://finnhub.io/api/v1/quote?symbol=AAPL&token=cbtbp8iad3i8shh4rflg`
       );
       console.log(response.data);
       dispatch(fetchedAaplInfo(response.data));
@@ -122,7 +122,7 @@ export const fetchAbnbInfo = (asset) => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(
-        `https://ftx.com/api/markets/${asset}/USD`
+        `https://finnhub.io/api/v1/quote?symbol=ABNB&token=cbtbp8iad3i8shh4rflg`
       );
       console.log(response.data);
       dispatch(fetchedAbnbInfo(response.data));
@@ -136,7 +136,7 @@ export const fetchAmdInfo = (asset) => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(
-        `https://ftx.com/api/markets/${asset}/USD`
+        `https://finnhub.io/api/v1/quote?symbol=AMD&token=cbtbp8iad3i8shh4rflg`
       );
       console.log(response.data);
       dispatch(fetchedAmdInfo(response.data));
@@ -150,7 +150,7 @@ export const fetchAmznInfo = (asset) => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.get(
-        `https://ftx.com/api/markets/${asset}/USD`
+        `https://finnhub.io/api/v1/quote?symbol=AMZN&token=cbtbp8iad3i8shh4rflg`
       );
       console.log(response.data);
       dispatch(fetchedAmznInfo(response.data));

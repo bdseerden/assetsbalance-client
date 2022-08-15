@@ -138,14 +138,14 @@ export default function PortfolioPage() {
                     !assetAmount
                       ? null
                       : (
-                          assetAmount[4].amount * btcInfo.result.price +
-                          assetAmount[5].amount * ethInfo.result.price +
-                          assetAmount[7].amount * ltcInfo.result.price +
-                          assetAmount[0].amount * aaplInfo.result.price +
-                          assetAmount[1].amount * abnbInfo.result.price +
-                          assetAmount[2].amount * amdInfo.result.price +
-                          assetAmount[3].amount * amznInfo.result.price +
-                          assetAmount[9].amount * xrpInfo.result.price
+                          assetAmount[4].amount * btcInfo.bitcoin.usd +
+                          assetAmount[5].amount * ethInfo.ethereum.usd +
+                          assetAmount[7].amount * ltcInfo.litecoin.usd +
+                          assetAmount[0].amount * aaplInfo.c +
+                          assetAmount[1].amount * abnbInfo.c +
+                          assetAmount[2].amount * amdInfo.c +
+                          assetAmount[3].amount * amznInfo.c +
+                          assetAmount[9].amount * xrpInfo.ripple.usd
                         ).toLocaleString("en-US")}
                   </Card.Title>
                 </div>
@@ -272,28 +272,28 @@ export default function PortfolioPage() {
                               {" "}
                               $
                               {holding.asset === "BTC" && holding.amount > 0
-                                ? btcInfo.result.price.toLocaleString("en-US")
+                                ? btcInfo.bitcoin.usd.toLocaleString("en-US")
                                 : null}
                               {holding.asset === "ETH" && holding.amount > 0
-                                ? ethInfo.result.price.toLocaleString("en-US")
+                                ? ethInfo.ethereum.usd.toLocaleString("en-US")
                                 : null}
                               {holding.asset === "LTC" && holding.amount > 0
-                                ? ltcInfo.result.price.toLocaleString("en-US")
+                                ? ltcInfo.litecoin.usd.toLocaleString("en-US")
                                 : null}
                               {holding.asset === "XRP" && holding.amount > 0
-                                ? xrpInfo.result.price.toLocaleString("en-US")
+                                ? xrpInfo.ripple.usd.toLocaleString("en-US")
                                 : null}
                               {holding.asset === "AAPL" && holding.amount > 0
-                                ? aaplInfo.result.price.toLocaleString("en-US")
+                                ? aaplInfo.c.toLocaleString("en-US")
                                 : null}
                               {holding.asset === "ABNB" && holding.amount > 0
-                                ? abnbInfo.result.price.toLocaleString("en-US")
+                                ? abnbInfo.c.toLocaleString("en-US")
                                 : null}
                               {holding.asset === "AMD" && holding.amount > 0
-                                ? amdInfo.result.price.toLocaleString("en-US")
+                                ? amdInfo.c.toLocaleString("en-US")
                                 : null}
                               {holding.asset === "AMZN" && holding.amount > 0
-                                ? amznInfo.result.price.toLocaleString("en-US")
+                                ? amznInfo.c.toLocaleString("en-US")
                                 : null}
                             </td>
                             <td>{holding.amount}</td>
@@ -301,43 +301,43 @@ export default function PortfolioPage() {
                               $
                               {holding.asset === "BTC" && holding.amount > 0
                                 ? (
-                                    btcInfo.result.price * holding.amount
+                                    btcInfo.bitcoin.usd * holding.amount
                                   ).toLocaleString("en-US")
                                 : null}
                               {holding.asset === "ETH" && holding.amount > 0
                                 ? (
-                                    ethInfo.result.price * holding.amount
+                                    ethInfo.ethereum.usd * holding.amount
                                   ).toLocaleString("en-US")
                                 : null}
                               {holding.asset === "LTC" && holding.amount > 0
                                 ? (
-                                    ltcInfo.result.price * holding.amount
+                                    ltcInfo.litecoin.usd * holding.amount
                                   ).toLocaleString("en-US")
                                 : null}
                               {holding.asset === "XRP" && holding.amount > 0
                                 ? (
-                                    xrpInfo.result.price * holding.amount
+                                    xrpInfo.ripple.usd * holding.amount
                                   ).toLocaleString("en-US")
                                 : null}
                               {holding.asset === "AAPL" && holding.amount > 0
-                                ? (
-                                    aaplInfo.result.price * holding.amount
-                                  ).toLocaleString("en-US")
+                                ? (aaplInfo.c * holding.amount).toLocaleString(
+                                    "en-US"
+                                  )
                                 : null}
                               {holding.asset === "ABNB" && holding.amount > 0
-                                ? (
-                                    abnbInfo.result.price * holding.amount
-                                  ).toLocaleString("en-US")
+                                ? (abnbInfo.c * holding.amount).toLocaleString(
+                                    "en-US"
+                                  )
                                 : null}
                               {holding.asset === "AMD" && holding.amount > 0
-                                ? (
-                                    amdInfo.result.price * holding.amount
-                                  ).toLocaleString("en-US")
+                                ? (amdInfo.c * holding.amount).toLocaleString(
+                                    "en-US"
+                                  )
                                 : null}
                               {holding.asset === "AMZN" && holding.amount > 0
-                                ? (
-                                    amznInfo.result.price * holding.amount
-                                  ).toLocaleString("en-US")
+                                ? (amznInfo.c * holding.amount).toLocaleString(
+                                    "en-US"
+                                  )
                                 : null}
                             </td>
                           </tr>
